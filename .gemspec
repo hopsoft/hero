@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'http://hopsoft.github.com/hero/'
   spec.summary = 'Business process modeling for the Rubyist'
   spec.description = <<-DESC
-    Simplify your applications with Hero.
+    Simplify your apps with Hero.
   DESC
 
   spec.authors = ['Nathan Hopkins']
