@@ -1,16 +1,52 @@
 require 'observer'
 require 'singleton'
+require 'forwardable'
 
-class Hero
-  include Observable
-  include Singleton
+module Hero
+  class Formula
+    include Observable
+    include Singleton
 
-  def notify(event_name, target=nil, options={})
-    changed
-    notify_observers(event_name, target=nil, options)
+    class << self
+      extend Forwardable
+      def_delegator :formulas, :each, :each
+      def_delegator :formulas, :length, :count
+
+      def reset
+        @formulas = {}
+      end
+
+      def [](name)
+        formulas[name]
+      end
+
+      def register(name)
+        observer = Hero::Observer.new
+        formula = Class.new(Hero::Formula).instance
+        formula.add_observer(observer)
+        formula.instance_eval { @observer = observer }
+        formulas[name] = formula
+      end
+
+      private
+
+      def formulas
+        @formulas ||= {}
+      end
+    end
+
+    def add_step(step=nil, &block)
+      step ||= block if block_given?
+      @observer.steps << step
+    end
+
+    def notify(target=nil, options={})
+      changed
+      notify_observers(target, options)
+    end
+
+    alias :run :notify
+
   end
 end
 
-InitUser.instance.notify(:before_init, {:name => "foo"})
-InitUser.instance.notify(:init, {:name => "foo"})
-InitUser.instance.notify(:save, {:name => "foo"})
