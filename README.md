@@ -105,8 +105,8 @@ the login requirement into business processes which might look something like th
 Note that we just defined an [ontology](http://en.wikipedia.org/wiki/Process_ontology) 
 that can be used to discuss the requirement and its implementation with non developers.
 
-I know it seems like overkill for our simple login requirement, 
-but stay with me... the benefits will become obvious in a minute.
+I know it seems like overkill right now but stay with me. 
+The benefits will become obvious in a minute.
 
 Here's an example of an implementation with Hero.
 
