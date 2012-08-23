@@ -23,14 +23,14 @@ The question remains. **Where do I put my business logic?**
 Finally... an answer that might even make DHH proud. 
 One that evolved from the real world with concrete use cases and actual production code.
 
-## Major Benefits {#major-benefits}
+## Why Hero? {#why-hero?}
 
 * App structure matches the mental map of your business
 * Testable coponents
 * Faster ramp up time for new team members
 * Easily handle changing requirements 
 
-## Process Modeling {#process-modeling}
+### Process Modeling {#process-modeling}
 
 The problem has always been: **How do you effectively model a business process within your app?**
 
@@ -38,12 +38,11 @@ Things start simply enough but eventually edge cases force *gotchas* into
 various libs, modules, and classes. Before you know you it,
 you have a lump of spaghetti that's difficult to maintain and even harder to improve.
 
-## Why Hero? {#why-hero?}
-
 Hero provides a simple pattern that encourages you to 
 <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
-business processes into managable chunks. And the best part... all the components are easily tested.
+business processes into managable chunks. And the best part... the components can be easily tested.
 
+---
 
 More soon. Stay tuned...
 {% include forkme.html %}
