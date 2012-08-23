@@ -26,7 +26,7 @@ One that evolved from the real world with concrete use cases and actual producti
 * App structure matches the mental map of your business
 * Testable coponents
 * Faster ramp up time for new team members
-* Easily handle changing requirements 
+* Easily handles changing requirements 
 
 ### Process Modeling
 
