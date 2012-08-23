@@ -4,9 +4,9 @@ forkme_url: https://github.com/hopsoft/hero
 ---
 # Hero {#hero}
 
-![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg) 
-
 ## Its a bird, its a plane, its... its... my Hero {#its-a-bird,-its-a-plane,-its...-its...-my-hero}
+
+![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg) 
 
 Ever wish that you could unwind the spaghetti and get out of the corner you've been backed into?
 
