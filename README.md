@@ -1,6 +1,6 @@
 # Hero
 
-## Its a bird, its a plane, its... its... my hero
+## Its a bird, its a plane, its... its... my Hero
 
 Ever wish that you could unwind the spaghetti and get out of the corner you've been backed into?
 Well... fret no more.
@@ -14,21 +14,20 @@ Whether is fat controllers, giant models with mystery ActiveRecord callbacks, or
 
 The question remains. **Where do I put my business logic?**
 
-I finally have an answer that would even make DHH proud... 
-since it evolved from real world code.
+Finally an answer that would make DHH proud... one that evolved from the real world with concrete use cases.
 
-## Modeling a business process
+## Modeling the business process
 
-The problem has always been effectively modeling a business process within the application structure.
+The problem has always been: How to effectively model a business process within your app.
 
-Things start simply enough but eventually the edge cases push little gotchas into
-the various libs, modules, and classes of your app. Before you know you it,
-you have a lump of spaghetti thats difficult to maintain and even harder to improve.
+Things start simply enough but eventually the edge cases force **gothcas** into
+various libs, modules, and classes. Before you know you it,
+you have a lump of spaghetti that's difficult to maintain and even harder to evolve.
 
-Enter Hero.
+### Enter Hero
 
 Hero provides a simple pattern that allows you to 
-[decompose](http://en.wikipedia.org/wiki/Decomposition_(computer_science)) 
+[decompose]("http://en.wikipedia.org/wiki/Decomposition_(computer_science)") 
 business processes into managable and testable chunks.
 
 Here's an example. 
