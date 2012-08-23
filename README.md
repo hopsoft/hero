@@ -38,8 +38,8 @@ Assume we have a Rails app that needs to support logins.
 
 Our implementation might look something like this.
 
-##### app/controllers/logins_controller.rb
 ```ruby
+# app/controllers/logins_controller.rb
 class LoginsController < ApplicationController
 
   def create
@@ -57,8 +57,8 @@ class LoginsController < ApplicationController
 end
 ```
 
-##### app/controllers/application_controller.rb
 ```ruby
+# app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   before_filter :require_login
  
@@ -112,14 +112,14 @@ but stay with me... the benefits will become obvious soon.
 
 Here's an example of what our implementation with Hero might look like.
 
-##### lib/errors.rb
 ```ruby
+# lib/errors.rb
 class AuthenticationError < StandardError; end
 class AuthorizationError < StandardError; end
 ```
 
-##### config/initializers/login.rb
 ```ruby
+# config/initializers/login.rb
 Hero::Formula.register(:login)
 Hero::Formula[:login].add_step do |context|
   user = User.authenticate(context.params[:username], context.params[:password])
@@ -138,8 +138,8 @@ Hero::Formula[:protect_page].add_step do |context|
 end
 ```
 
-##### app/controllers/logins_controller.rb
 ```ruby
+# app/controllers/logins_controller.rb
 class LoginsController < ApplicationController
   rescue_from AuthenticationError, :with => :new
 
@@ -159,8 +159,8 @@ class LoginsController < ApplicationController
 end
 ```
 
-##### app/controllers/application_controller.rb
 ```ruby
+# app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   before_filter :protect
   rescue_from AuthorizationError, :with => :force_login
