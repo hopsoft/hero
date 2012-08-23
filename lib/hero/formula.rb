@@ -13,6 +13,7 @@ module Hero
       def_delegator :formulas, :length, :count
 
       def reset
+        formulas.values.each { |f| f.delete_observers }
         @formulas = {}
       end
 

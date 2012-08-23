@@ -35,6 +35,16 @@ describe Hero::Formula do
     assert_equal Hero::Formula.count, 10
   end
 
+  it "should unregister formula observers on reset" do
+    formula = Hero::Formula[:test_formula]
+    assert_equal Hero::Formula.count, 1
+    formula.add_step {}
+    assert_equal formula.count_observers, 1
+    Hero::Formula.reset
+    assert_equal Hero::Formula.count, 0
+    assert_equal formula.count_observers, 0
+  end
+
   describe "a registered formula" do
     it "should support adding steps" do
       Hero::Formula.register(:test_formula)
