@@ -174,3 +174,4 @@ I know what you're thinking, and you're right.
 This doesn't pass DHH's before/after test, 
 but lets start throwing edge cases at it and see what happens.
 
+More soon. Stay tuned...
