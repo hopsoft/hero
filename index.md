@@ -25,7 +25,7 @@ One that evolved from the real world with concrete use cases and actual producti
 
 The problem has always been: How to effectively model a business process within your app.
 
-Things start simply enough but eventually edge cases force *gothcas* into
+Things start simply enough but eventually edge cases force *gotchas* into
 various libs, modules, and classes. Before you know you it,
 you have a lump of spaghetti that's difficult to maintain and even harder to improve.
 
@@ -178,4 +178,5 @@ I know what you're thinking, and you're right.
 This doesn't pass DHH's before/after test, 
 but lets start throwing edge cases at it and see what happens.
 
+More soon. Stay tuned...
 {% include forkme.html %}
