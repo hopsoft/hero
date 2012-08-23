@@ -3,18 +3,18 @@
 ## Its a bird, its a plane, its... its... my Hero
 
 Ever wish that you could unwind the spaghetti and get out of the corner you've been backed into?
-Well... fret no more.
 
 ### Hero is here to save the day
 
 I've seen my share of poor app structure. 
-Hell, I wrote most of the bad stuff I've seen.
+Hell, I wrote most of it.
 
-Whether is fat controllers, giant models with mystery ActiveRecord callbacks, or a junk drawer lib directory.
+Whether is fat controllers, giant models with mystery callbacks, or a junk drawer lib directory.
 
 The question remains. **Where do I put my business logic?**
 
-Finally an answer that would make DHH proud... one that evolved from the real world with concrete use cases.
+Finally... an answer that could even make DHH proud. 
+One that evolved from the real world with concrete use cases.
 
 ## Modeling the business process
 
