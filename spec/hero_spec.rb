@@ -24,6 +24,12 @@ describe Hero::Formula do
     assert Hero::Formula[:test_formula].is_a? Hero::Formula
   end
 
+  it "should auto register formulas" do
+    Hero::Formula[:test_formula]
+    assert_equal Hero::Formula.count, 1
+    assert Hero::Formula[:test_formula].is_a? Hero::Formula
+  end
+
   it "should support registering N number of formulas" do
     10.times { |i| Hero::Formula.register("example_#{i}") }
     assert_equal Hero::Formula.count, 10

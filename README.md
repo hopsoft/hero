@@ -118,19 +118,16 @@ class AuthorizationError < StandardError; end
 
 ```ruby
 # config/initializers/login.rb
-Hero::Formula.register(:login)
 Hero::Formula[:login].add_step do |context|
   user = User.authenticate(context.params[:username], context.params[:password])
   raise AuthenticationError unless user
   context.session[:current_user_id] = user.id
 end
 
-Hero::Formula.register(:logout)
 Hero::Formula[:logout].add_step do |context|
   context.session[:current_user_id] = nil
 end
 
-Hero::Formula.register(:protect_page)
 Hero::Formula[:protect_page].add_step do |context|
   raise AuthorizationError if context.session[:current_user_id].nil?
 end

@@ -17,7 +17,7 @@ module Hero
       end
 
       def [](name)
-        formulas[name]
+        formulas[name] ||= register(name)
       end
 
       def register(name)
