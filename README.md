@@ -136,10 +136,7 @@ end
 ```ruby
 # app/controllers/logins_controller.rb
 class LoginsController < ApplicationController
-  rescue_from AuthenticationError, :with => :new
-
-  def new
-  end
+  rescue_from AuthenticationError { render "new" }
 
   def create
     Hero::Formula[:login].run(self)
