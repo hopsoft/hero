@@ -8,27 +8,30 @@ Ever wish that you could unwind the spaghetti and get out of the corner you've b
 
 I've seen my share of poor app structure. 
 Hell, I wrote most of it.
-
 Whether is fat controllers, giant models with mystery callbacks, or a junk drawer lib directory.
 
 The question remains. **Where do I put my business logic?**
 
-Finally... an answer that could even make DHH proud. 
+Finally... an answer that might even make DHH proud. 
 One that evolved from the real world with concrete use cases.
 
-## Modeling the business process
+## Process Modeling
 
 The problem has always been: How to effectively model a business process within your app.
 
-Things start simply enough but eventually the edge cases force **gothcas** into
+Things start simply enough; but eventually, edge cases force **gothcas** into
 various libs, modules, and classes. Before you know you it,
-you have a lump of spaghetti that's difficult to maintain and even harder to evolve.
+you have a lump of spaghetti that's difficult to maintain and even harder to improve.
 
 ### Enter Hero
 
-Hero provides a simple pattern that allows you to 
-[decompose]("http://en.wikipedia.org/wiki/Decomposition_(computer_science)") 
-business processes into managable and testable chunks.
+Hero provides a simple pattern that encourages you to 
+<a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
+business processes into managable chunks.
+
+And... the best part is, they are easily tested.
+
+---
 
 Here's an example. 
 Assume we have a Rails app that needs to support logins. 
@@ -81,7 +84,7 @@ end
 ```
 
 Hero approaches this problem differently. 
-It asks us to [decompose](http://en.wikipedia.org/wiki/Decomposition_(computer_science)) 
+It asks us to <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
 the login requirement into business processes which might look something like this.
 
 #### Login
