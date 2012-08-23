@@ -40,9 +40,9 @@ module Hero
       @observer.steps << step
     end
 
-    def notify(target=nil, options={})
+    def notify(context=nil, options={})
       changed
-      notify_observers(target, options)
+      notify_observers(context, options)
     end
 
     alias :run :notify

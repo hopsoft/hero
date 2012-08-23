@@ -5,8 +5,8 @@ module Hero
       @steps ||= []
     end
 
-    def update(target, options={})
-      steps.each { |step| step.call(target, options) }
+    def update(context, options={})
+      steps.each { |step| step.call(context, options) }
     end
 
   end
