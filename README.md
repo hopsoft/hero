@@ -1,8 +1,8 @@
 # Hero
 
-## Its a bird, its a plane, its... its... my Hero
-
 ![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg) 
+
+## Its a bird, its a plane, its... its... my Hero
 
 *Controlling complexity is the essence of computer programming.*
 
