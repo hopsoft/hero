@@ -105,12 +105,10 @@ the login requirement into business processes which might look something like th
 Note that we just defined an [ontology](http://en.wikipedia.org/wiki/Process_ontology) 
 that can be used to discuss the requirement and its implementation with non developers.
 
-*This point cannot be understated.*
+I know it seems like overkill for our simple login requirement, 
+but stay with me... the benefits will become obvious in a minute.
 
-I know that this seems like overkill for our simple login requirement, 
-but stay with me... the benefits will become obvious soon.
-
-Here's an example of what our implementation with Hero might look like.
+Here's an example of an implementation with Hero.
 
 ```ruby
 # lib/errors.rb
@@ -178,3 +176,7 @@ class ApplicationController < ActionController::Base
  
 end
 ```
+
+I know what you're thinking, and you're right. 
+This doesn't pass DHH's before/after test, 
+but lets start throwing edge cases at it and see what happens.
