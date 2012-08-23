@@ -85,7 +85,7 @@ end
 
 Hero approaches this problem differently. 
 It asks us to <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
-the login requirement into business processes which might look something like this.
+the login requirement into a business processes looks something like this.
 
 #### Login
 
