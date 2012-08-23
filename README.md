@@ -36,7 +36,7 @@ you have a lump of spaghetti that's difficult to maintain and even harder to imp
 
 Hero provides a simple pattern that encourages you to 
 <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
-business processes into managable chunks. And the best part... the components can be easily tested.
+these processes into managable chunks. And the best part... the components can be easily tested.
 
 ---
 
