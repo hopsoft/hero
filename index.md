@@ -8,6 +8,8 @@ forkme_url: https://github.com/hopsoft/hero
 
 ## Its a bird, its a plane, its... its... my Hero {#its-a-bird,-its-a-plane,-its...-its...-my-hero}
 
+---
+
 *Controlling complexity is the essence of computer programming.*
 
 -- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
