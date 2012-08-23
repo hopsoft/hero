@@ -17,6 +17,13 @@ The question remains. **Where do I put my business logic?**
 Finally... an answer that might even make DHH proud. 
 One that evolved from the real world with concrete use cases and actual production code.
 
+## Major Benefits
+
+* App structure matches the mental map of the business
+* Testable coponents
+* Faster ramp up time for new team members
+* Easily handle changing requirements 
+
 ## Process Modeling
 
 The problem has always been: How to effectively model a business process within your app.
