@@ -4,9 +4,11 @@
 
 ![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg) 
 
-Ever wish that you could unwind the spaghetti and get out of the corner you've been backed into?
+*Controlling complexity is the essence of computer programming.*
 
-### Hero is here to save the day
+-- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
+
+---
 
 I've seen my share of poor app structure. 
 Hell, I wrote most of it.
@@ -19,26 +21,24 @@ One that evolved from the real world with concrete use cases and actual producti
 
 ## Major Benefits
 
-* App structure matches the mental map of the business
+* App structure matches the mental map of your business
 * Testable coponents
 * Faster ramp up time for new team members
 * Easily handle changing requirements 
 
 ## Process Modeling
 
-The problem has always been: How to effectively model a business process within your app.
+The problem has always been: **How do you effectively model a business process within your app?**
 
 Things start simply enough but eventually edge cases force *gotchas* into
 various libs, modules, and classes. Before you know you it,
 you have a lump of spaghetti that's difficult to maintain and even harder to improve.
 
-### Enter Hero
+## Why Hero?
 
 Hero provides a simple pattern that encourages you to 
 <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
-business processes into managable chunks.
-
-And... the best part is, all the components are easily tested.
+business processes into managable chunks. And the best part... all the components are easily tested.
 
 
 More soon. Stay tuned...
