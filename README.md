@@ -105,9 +105,6 @@ the login requirement into business processes which might look something like th
 Note that we just defined an [ontology](http://en.wikipedia.org/wiki/Process_ontology) 
 that can be used to discuss the requirement and its implementation with non developers.
 
-I know it seems like overkill right now but stay with me. 
-The benefits will become obvious in a minute.
-
 Here's an example of an implementation with Hero.
 
 ```ruby
@@ -174,3 +171,4 @@ end
 I know what you're thinking, and you're right. 
 This doesn't pass DHH's before/after test, 
 but lets start throwing edge cases at it and see what happens.
+
