@@ -96,10 +96,10 @@ puts Hero::Formula[:gather_news].publish
 #      4. email
 {% endhighlight %}
 
-Wow... pretty slick.
+Pretty slick.
 The implementation is in complete alignment with the business requirements.
 
-OK. Lets run the process.
+Now... lets run the process.
 
 {% highlight ruby %}
 news = {}
@@ -110,10 +110,11 @@ And we're done.
 
 ### Key take aways {#key-take-aways}
 
-- The implementation aligns perfectly with the requirements
-- Each step implements the interface `def call(context)` 
-  *This means we can create step classes.*
-- The formula is composed of smaller steps that are interchangable
+- The implementation aligns perfectly with the requirements.
+- The formula is composed of smaller steps that are interchangable.
   *This means we are poised for changing requirements.*
+- Each step implements the interface `def call(context)` 
+  *This means we can create step classes to simplify the app structure.*
 
+More info soon...
 {% include forkme.html %}
