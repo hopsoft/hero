@@ -98,12 +98,10 @@ puts Hero::Formula[:gather_news].publish
 
 Pretty slick.
 The implementation is in complete alignment with the business requirements.
-
 Now... lets run the process.
 
 {% highlight ruby %}
-news = {}
-Hero::Formula[:gather_news].run news
+Hero::Formula[:gather_news].run({})
 {% endhighlight %}
 
 And we're done.
