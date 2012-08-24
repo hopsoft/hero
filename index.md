@@ -120,5 +120,62 @@ And we're done.
 - **Each step implements the interface `def call(context)`**
   *This means we can create step classes to simplify the app structure.*
 
-More info soon...
+## Next Steps {#next-steps}
+
+As our app grows in complexity, we would change the steps from blocks to classes.
+Here's an example.
+
+{% highlight ruby %}
+# this
+Hero::Formula[:gather_news].add_step :hacker_news do |news|
+  # make api call
+  # parse results
+  # append results to news
+end
+
+# changes to this
+module GatherNews
+  class HackerNews
+
+    def call(news)
+      # make api call
+      # parse results
+      # append results to news
+    end
+
+  end
+end
+
+Hero::Formula[:gather_news].add_step GatherNews::HackerNews.new
+{% endhighlight %}
+
+We would also create a directory structure that mapped to our business process.
+Something like this.
+
+{% highlight bash %}
+- app
+ |-formulas
+   |-gather_news
+     |-hacker_news.rb
+     |-reddit.rb
+     |-google.rb
+     |-email.rb
+{% endhighlight %}
+
+We would then create an initializer to set the formula up.
+
+{% highlight ruby %}
+Hero::Formula[:gather_news].add_step GatherNews::HackerNews.new
+Hero::Formula[:gather_news].add_step GatherNews::Reddit.new
+Hero::Formula[:gather_news].add_step GatherNews::Google.new
+Hero::Formula[:gather_news].add_step GatherNews::Email.new
+{% endhighlight %}
+
+Notice how well organized our application is and how easily tested it is.
+We can write tests for each step independent of the application itself.
+This is an important point and a powerful concept.
+
+## Deep Cuts {#deep-cuts}
+
+Advanced usage coming soon...
 {% include forkme.html %}
