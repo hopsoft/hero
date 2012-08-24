@@ -83,7 +83,7 @@ Hero::Formula[:gather_news].add_step :email do |news|
 end
 {% endhighlight %}
 
-This looks surprising similar to the requirements handed to us. 
+This looks surprising similar to the requirements. 
 In fact we can easily publish the specification directly from Hero.
 
 {% highlight ruby %}
@@ -97,7 +97,6 @@ puts Hero::Formula[:gather_news].publish
 {% endhighlight %}
 
 Pretty slick.
-The implementation is in complete alignment with the business requirements.
 Now... lets run the process.
 
 {% highlight ruby %}
@@ -109,6 +108,7 @@ And we're done.
 ### Key take aways {#key-take-aways}
 
 - The implementation aligns perfectly with the requirements.
+  *This means that developers and business folks can talk the same lingo.*
 - The formula is composed of smaller steps that are interchangable.
   *This means we are poised for changing requirements.*
 - Each step implements the interface `def call(context)` 
