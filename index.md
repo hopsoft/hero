@@ -122,7 +122,7 @@ And we're done.
 
 ## Next Steps {#next-steps}
 
-As our app grows in complexity, we would change the steps from blocks to classes.
+As our app grows in complexity, we should change the steps from blocks to classes.
 Here's an example.
 
 {% highlight ruby %}
@@ -149,7 +149,7 @@ end
 Hero::Formula[:gather_news].add_step GatherNews::HackerNews.new
 {% endhighlight %}
 
-We would also create a directory structure that mapped to our business process.
+We should also create a directory structure that maps to the business process.
 Something like this.
 
 {% highlight bash %}
@@ -162,7 +162,7 @@ Something like this.
      |-email.rb
 {% endhighlight %}
 
-We would then create an initializer to set the formula up.
+We also need an initializer to set the formula up.
 
 {% highlight ruby %}
 # app/initializer.rb
@@ -171,6 +171,8 @@ Hero::Formula[:gather_news].add_step GatherNews::Reddit.new
 Hero::Formula[:gather_news].add_step GatherNews::Google.new
 Hero::Formula[:gather_news].add_step GatherNews::Email.new
 {% endhighlight %}
+
+Now we have a well structured application that is ready to grow.
 
 Notice how well organized our application is.
 Also note that we can write tests for each step independent of anything else.
