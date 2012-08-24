@@ -25,10 +25,10 @@ One that evolved from the real world with concrete use cases and actual producti
 
 ## Why Hero? {#why-hero?}
 
-* App structure matches the mental map of your business
-* Testable coponents
-* Faster ramp up time for new team members
-* Easily handles changing requirements 
+* It matches the mental map of your business requirements
+* It produces testable coponents
+* It easily handles changing requirements 
+* It reduces the ramp up time for new team members
 
 ## Process Modeling {#process-modeling}
 
