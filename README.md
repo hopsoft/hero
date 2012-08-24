@@ -150,13 +150,13 @@ We should also create a directory structure that maps to the business process.
 Something like this.
 
 ```bash
-- app
- |-formulas
-   |-gather_news
-     |-hacker_news.rb
-     |-reddit.rb
-     |-google.rb
-     |-email.rb
+|-app
+  |-formulas
+    |-gather_news
+      |-hacker_news.rb
+      |-reddit.rb
+      |-google.rb
+      |-email.rb
 ```
 
 We also need an initializer to set the formula up.
