@@ -22,7 +22,7 @@ One that evolved from the real world with concrete use cases and actual producti
 ## Why Hero?
 
 * It matches the mental map of your business requirements
-* It produces testable coponents
+* It produces testable components
 * It easily handles changing requirements 
 * It reduces the ramp up time for new team members
 
@@ -58,25 +58,25 @@ Gather News
 Now that we have the basic requirements, lets model it with Hero.
 
 ```ruby
-Hero::Formula[:gather_news].add_step :hacker_news do |news|
+Hero::Formula[:gather_news].add_step :hacker_news do |context|
   # make api call
   # parse results
   # append results to news
 end
 
-Hero::Formula[:gather_news].add_step :reddit do |news|
+Hero::Formula[:gather_news].add_step :reddit do |context|
   # make api call
   # parse results
   # append results to news
 end
 
-Hero::Formula[:gather_news].add_step :google do |news|
+Hero::Formula[:gather_news].add_step :google do |context|
   # make api call
   # parse results
   # append results to news
 end
 
-Hero::Formula[:gather_news].add_step :email do |news|
+Hero::Formula[:gather_news].add_step :email do |context|
   # format news for email
   # compose the email
   # send the email
@@ -100,7 +100,8 @@ Pretty slick.
 Now... lets run the process.
 
 ```ruby
-Hero::Formula[:gather_news].run({})
+news = {}
+Hero::Formula[:gather_news].run(news)
 ```
 
 And we're done.
@@ -123,7 +124,7 @@ Here's an example.
 
 ```ruby
 # this
-Hero::Formula[:gather_news].add_step :hacker_news do |news|
+Hero::Formula[:gather_news].add_step :hacker_news do |context|
   # make api call
   # parse results
   # append results to news
@@ -133,7 +134,7 @@ end
 module GatherNews
   class HackerNews
 
-    def call(news)
+    def call(context)
       # make api call
       # parse results
       # append results to news
