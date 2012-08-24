@@ -1,5 +1,10 @@
 module Hero
   class Observer
+    attr_reader :formula_name
+
+    def initialize(formula_name)
+      @formula_name = formula_name
+    end
 
     def steps
       @steps ||= {}
@@ -13,7 +18,12 @@ module Hero
     end
 
     def update(context, options={})
-      steps.each { |step| step.values.first.call(context, options) }
+      steps.each do |step|
+        if Hero.logger
+          Hero.logger.info "HERO Formula: #{formula_name}, Step: #{step.keys.first}, Context: #{context.inspect}, Options: #{options.inspect}"
+        end
+        step.values.first.call(context, options)
+      end
     end
 
   end

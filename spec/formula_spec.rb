@@ -4,6 +4,7 @@ describe Hero::Formula do
   include GrumpyOldMan
 
   before :each do
+    Hero.logger = nil
     Hero::Formula.reset
   end
 
@@ -99,6 +100,23 @@ describe Hero::Formula do
       Hero::Formula[:test_formula].add_step(:four) {}
       expected = "test_formula  1. one  2. two  3. three  4. four"
       assert_equal Hero::Formula[:test_formula].publish.gsub(/\n/, ""), expected
+    end
+
+    it "should support logging" do
+      class TestLogger
+        attr_reader :buffer
+        def info(value)
+          @buffer ||= []
+          @buffer << value
+        end
+      end
+      Hero.logger = TestLogger.new
+      Hero::Formula[:test_formula].add_step(:one) {}
+      Hero::Formula[:test_formula].add_step(:two) {}
+      Hero::Formula[:test_formula].run(:example, :logging => true)
+      assert_equal Hero.logger.buffer.length, 2
+      assert_equal "HERO Formula: test_formula, Step: one, Context: :example, Options: {:logging=>true}", Hero.logger.buffer.first
+      assert_equal "HERO Formula: test_formula, Step: two, Context: :example, Options: {:logging=>true}", Hero.logger.buffer.last
     end
 
   end

@@ -5,7 +5,7 @@ describe "Hero::Observer instance" do
 
   it "should support add_step" do
     step = lambda {}
-    o = Hero::Observer.new
+    o = Hero::Observer.new(:example)
     o.add_step(:one, step)
     assert_equal o.steps.length, 1
     assert_equal o.steps[0].keys.first, :one
@@ -15,7 +15,7 @@ describe "Hero::Observer instance" do
   it "should support properly handle a double add" do
     step1 = lambda {}
     step2 = lambda {}
-    o = Hero::Observer.new
+    o = Hero::Observer.new(:example)
     o.add_step(:one, step1)
     o.add_step(:one, step2)
     assert_equal o.steps.length, 1
@@ -24,7 +24,7 @@ describe "Hero::Observer instance" do
   end
 
   it "should properly sort steps based on the order they were added" do
-    o = Hero::Observer.new
+    o = Hero::Observer.new(:example)
     o.add_step(:one) {}
     o.add_step(:two) {}
     o.add_step(:three) {}

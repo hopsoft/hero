@@ -1,8 +1,10 @@
 require 'observer'
 require 'singleton'
 require 'forwardable'
+require File.join(File.dirname(__FILE__), "observer")
 
 module Hero
+
   class Formula
 
     # Class attributes & methods ==============================================
@@ -29,7 +31,7 @@ module Hero
       end
 
       def register(name)
-        observer = Hero::Observer.new
+        observer = Hero::Observer.new(name)
         formula = Class.new(Hero::Formula).instance
         formula.add_observer(observer)
         formula.instance_eval do
