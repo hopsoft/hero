@@ -11,6 +11,14 @@ module Hero
       def_delegator :formulas, :each, :each
       def_delegator :formulas, :length, :count
 
+      def publish
+        value = []
+        each do |name, formula|
+          value << formula.publish
+        end
+        value.join("\n\n")
+      end
+
       def reset
         formulas.values.each { |f| f.delete_observers }
         @formulas = {}
@@ -47,7 +55,7 @@ module Hero
     def_delegator :observer, :steps, :steps
     def_delegator :observer, :add_step, :add_step
 
-    def inspect
+    def publish
       value = [name]
       steps.each_with_index do |step, index|
         value << "#{(index + 1).to_s.rjust(3)}. #{step.keys.first}"

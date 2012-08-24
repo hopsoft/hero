@@ -41,6 +41,21 @@ describe Hero::Formula do
     assert_equal formula.count_observers, 0
   end
 
+  it "should publish all formulas" do
+    Hero::Formula[:first].add_step(:one) {}
+    Hero::Formula[:first].add_step(:two) {}
+    Hero::Formula[:first].add_step(:three) {}
+    Hero::Formula[:first].add_step(:four) {}
+
+    Hero::Formula[:second].add_step(:one) {}
+    Hero::Formula[:second].add_step(:two) {}
+    Hero::Formula[:second].add_step(:three) {}
+    Hero::Formula[:second].add_step(:four) {}
+
+    expected = "first  1. one  2. two  3. three  4. foursecond  1. one  2. two  3. three  4. four"
+    assert_equal Hero::Formula.publish.gsub(/\n/, ""), expected
+  end
+
   describe "a registered formula" do
     it "should support adding steps" do
       Hero::Formula[:test_formula].add_step(:one) { }
@@ -77,13 +92,13 @@ describe Hero::Formula do
       assert log[:two]
     end
 
-    it "should inspect properly" do
+    it "should publish all steps in the formula" do
       Hero::Formula[:test_formula].add_step(:one) {}
       Hero::Formula[:test_formula].add_step(:two) {}
       Hero::Formula[:test_formula].add_step(:three) {}
       Hero::Formula[:test_formula].add_step(:four) {}
       expected = "test_formula  1. one  2. two  3. three  4. four"
-      assert_equal Hero::Formula[:test_formula].inspect.gsub(/\n/, ""), expected
+      assert_equal Hero::Formula[:test_formula].publish.gsub(/\n/, ""), expected
     end
 
   end
