@@ -1,8 +1,4 @@
-require "pry"
-require "grumpy_old_man"
-Dir[File.join(File.dirname(__FILE__), "..", "lib", "*.rb")].each do |file|
-  require file
-end
+require "spec_helper"
 
 describe Hero::Formula do
   include GrumpyOldMan
@@ -38,7 +34,7 @@ describe Hero::Formula do
   it "should unregister formula observers on reset" do
     formula = Hero::Formula[:test_formula]
     assert_equal Hero::Formula.count, 1
-    formula.add_step {}
+    formula.add_step(:one) {}
     assert_equal formula.count_observers, 1
     Hero::Formula.reset
     assert_equal Hero::Formula.count, 0
@@ -47,21 +43,47 @@ describe Hero::Formula do
 
   describe "a registered formula" do
     it "should support adding steps" do
-      Hero::Formula.register(:test_formula)
-      Hero::Formula[:test_formula].add_step { }
+      Hero::Formula[:test_formula].add_step(:one) { }
+      assert_equal Hero::Formula.count, 1
+      assert_equal Hero::Formula[:test_formula].steps.length, 1
     end
 
-    it "should support notify" do
-      Hero::Formula.register(:test_formula)
+    def invoke_notify_method(name)
       step_ran = false
       target = Object.new
-      Hero::Formula[:test_formula].add_step do |t, opts|
+      Hero::Formula[:test_formula].add_step(:one) do |t, opts|
         assert_equal t, target
         assert_equal opts[:foo], :bar
         step_ran = true
       end
       Hero::Formula[:test_formula].notify(target, :foo => :bar)
       assert step_ran
+    end
+
+    it "should support notify" do
+      invoke_notify_method(:notify)
+    end
+
+    it "should support run" do
+      invoke_notify_method(:run)
+    end
+
+    it "should support running multiple tests" do
+      log = {}
+      Hero::Formula[:test_formula].add_step(:one) { |o, l| l[:one] = true }
+      Hero::Formula[:test_formula].add_step(:two) { |o, l| l[:two] = true }
+      Hero::Formula[:test_formula].run(self, log)
+      assert log[:one]
+      assert log[:two]
+    end
+
+    it "should inspect properly" do
+      Hero::Formula[:test_formula].add_step(:one) {}
+      Hero::Formula[:test_formula].add_step(:two) {}
+      Hero::Formula[:test_formula].add_step(:three) {}
+      Hero::Formula[:test_formula].add_step(:four) {}
+      expected = "test_formula  1. one  2. two  3. three  4. four"
+      assert_equal Hero::Formula[:test_formula].inspect.gsub(/\n/, ""), expected
     end
 
   end

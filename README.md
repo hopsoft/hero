@@ -6,9 +6,7 @@
 
 ---
 
-*Controlling complexity is the essence of computer programming.*
-
--- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
+*Controlling complexity is the essence of computer programming. -- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)*
 
 ---
 
