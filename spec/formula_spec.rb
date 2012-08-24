@@ -84,6 +84,19 @@ describe Hero::Formula do
       invoke_notify_method(:run)
     end
 
+    it "should support running step defined in a class" do
+      class Step
+        def call(context, options)
+          options[:context] = context
+        end
+      end
+
+      opts = {}
+      Hero::Formula[:test_formula].add_step(:one, Step.new)
+      Hero::Formula[:test_formula].run(:foo, opts)
+      assert_equal opts[:context], :foo
+    end
+
     it "should support running multiple tests" do
       log = {}
       Hero::Formula[:test_formula].add_step(:one) { |o, l| l[:one] = true }
