@@ -10,9 +10,7 @@ forkme_url: https://github.com/hopsoft/hero
 
 ---
 
-*Controlling complexity is the essence of computer programming.*
-
--- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
+*Controlling complexity is the essence of computer programming. -- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)*
 
 ---
 
@@ -30,9 +28,9 @@ One that evolved from the real world with concrete use cases and actual producti
 * App structure matches the mental map of your business
 * Testable coponents
 * Faster ramp up time for new team members
-* Easily handle changing requirements 
+* Easily handles changing requirements 
 
-### Process Modeling {#process-modeling}
+## Process Modeling {#process-modeling}
 
 The problem has always been: **How do you effectively model a business process within your app?**
 
@@ -46,5 +44,46 @@ these processes into managable chunks. And the best part... the components can b
 
 ---
 
-More soon. Stay tuned...
+## Quick Start {#quick-start}
+
+Lets model a business process for collecting the top news stories from Hacker News, Reddit, & Google and then emailing the results to someone.
+
+Gather News
+
+- Get news from Hacker News
+- Get news from Reddit
+- Get news from Google
+- Email Results
+
+Now that we have the basic requirements, lets model it with Hero.
+
+{% highlight ruby %}
+Hero::Formula[:gather_news].add_step :hacker_news do |news|
+  # make api call
+  # parse results
+  # append results to news
+end
+
+Hero::Formula[:gather_news].add_step :reddit do |news|
+  # make api call
+  # parse results
+  # append results to news
+end
+
+Hero::Formula[:gather_news].add_step :google do |news|
+  # make api call
+  # parse results
+  # append results to news
+end
+
+Hero::Formula[:gather_news].add_step :email do |news|
+  # format news for email
+  # compose the email
+  # send the email
+end
+{% endhighlight %}
+
+
+
+
 {% include forkme.html %}
