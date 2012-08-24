@@ -42,8 +42,6 @@ these processes into managable chunks. And the best part... the components can b
 
 ## Quick Start
 
-Install
-
 ```bash
 gem install hero
 ```
