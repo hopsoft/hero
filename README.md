@@ -161,14 +161,15 @@ Something like this.
 We would then create an initializer to set the formula up.
 
 ```ruby
+# app/initializer.rb
 Hero::Formula[:gather_news].add_step GatherNews::HackerNews.new
 Hero::Formula[:gather_news].add_step GatherNews::Reddit.new
 Hero::Formula[:gather_news].add_step GatherNews::Google.new
 Hero::Formula[:gather_news].add_step GatherNews::Email.new
 ```
 
-Notice how well organized our application is and how easily tested it is.
-We can write tests for each step independent of the application itself.
+Notice how well organized our application is.
+Also note that we can write tests for each step independent of anything else.
 This is an important point and a powerful concept.
 
 ## Deep Cuts
