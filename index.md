@@ -173,7 +173,6 @@ Hero::Formula[:gather_news].add_step GatherNews::Email.new
 {% endhighlight %}
 
 Now we have a well structured application that is ready to grow.
-
 Notice how well organized everything is.
 
 Also note that we can write tests for each step independent of anything else.
