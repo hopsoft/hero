@@ -46,6 +46,12 @@ these processes into managable chunks. And the best part... the components can b
 
 ## Quick Start {#quick-start}
 
+Install
+
+{% highlight bash %}
+gem install hero
+{% endhighlight %}
+
 Lets model a business process for collecting the top news stories from Hacker News, Reddit, & Google and then emailing the results to someone.
 
 Gather News
@@ -107,16 +113,13 @@ And we're done.
 
 ### Key take aways {#key-take-aways}
 
-- The implementation aligns perfectly with the requirements.
-
+- **The implementation aligns perfectly with the requirements.**
   *This means that developers and business folks can talk the same lingo.*
 
-- The formula is composed of smaller steps that are interchangable.
-
+- **The formula is composed of smaller steps that are interchangable.**
   *This means we are poised for changing requirements.*
 
-- Each step implements the interface `def call(context)` 
-
+- **Each step implements the interface `def call(context)`**
   *This means we can create step classes to simplify the app structure.*
 
 More info soon...
