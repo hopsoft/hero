@@ -61,19 +61,19 @@ Now that we have the basic requirements, lets model it with Hero.
 Hero::Formula[:gather_news].add_step :hacker_news do |context|
   # make api call
   # parse results
-  # append results to news
+  # append results to context
 end
 
 Hero::Formula[:gather_news].add_step :reddit do |context|
   # make api call
   # parse results
-  # append results to news
+  # append results to context
 end
 
 Hero::Formula[:gather_news].add_step :google do |context|
   # make api call
   # parse results
-  # append results to news
+  # append results to context
 end
 
 Hero::Formula[:gather_news].add_step :email do |context|
@@ -127,7 +127,7 @@ Here's an example.
 Hero::Formula[:gather_news].add_step :hacker_news do |context|
   # make api call
   # parse results
-  # append results to news
+  # append results to context
 end
 
 # changes to this
@@ -137,7 +137,7 @@ module GatherNews
     def call(context)
       # make api call
       # parse results
-      # append results to news
+      # append results to context
     end
 
   end
