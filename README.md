@@ -80,7 +80,7 @@ end
 ```
 
 This looks surprising similar to the requirements. 
-In fact we can easily publish the specification directly from Hero.
+In fact we can publish the specification directly from Hero.
 
 ```ruby
 puts Hero::Formula[:gather_news].publish
@@ -104,10 +104,15 @@ And we're done.
 ### Key take aways
 
 - The implementation aligns perfectly with the requirements.
+
   *This means that developers and business folks can talk the same lingo.*
+
 - The formula is composed of smaller steps that are interchangable.
+
   *This means we are poised for changing requirements.*
+
 - Each step implements the interface `def call(context)` 
+
   *This means we can create step classes to simplify the app structure.*
 
 More info soon...
