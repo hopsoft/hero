@@ -46,8 +46,6 @@ these processes into managable chunks. And the best part... the components can b
 
 ## Quick Start {#quick-start}
 
-Install
-
 {% highlight bash %}
 gem install hero
 {% endhighlight %}
