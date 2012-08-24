@@ -83,7 +83,37 @@ Hero::Formula[:gather_news].add_step :email do |news|
 end
 {% endhighlight %}
 
+This looks surprising similar to the requirements handed to us. 
+In fact we can easily publish the specification directly from Hero.
 
+{% highlight ruby %}
+puts Hero::Formula[:gather_news].publish
 
+# => gather_news
+#      1. hacker_news
+#      2. reddit
+#      3. google
+#      4. email
+{% endhighlight %}
+
+Wow... pretty slick.
+The implementation is in complete alignment with the business requirements.
+
+OK. Lets run the process.
+
+{% highlight ruby %}
+news = {}
+Hero::Formula[:gather_news].run news
+{% endhighlight %}
+
+And we're done.
+
+### Key take aways {#key-take-aways}
+
+- The implementation aligns perfectly with the requirements
+- Each step implements the interface `def call(context)` 
+  *This means we can create step classes.*
+- The formula is composed of smaller steps that are interchangable
+  *This means we are poised for changing requirements.*
 
 {% include forkme.html %}
