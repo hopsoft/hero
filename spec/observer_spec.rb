@@ -8,8 +8,8 @@ describe "Hero::Observer instance" do
     o = Hero::Observer.new(:example)
     o.add_step(:one, step)
     assert_equal o.steps.length, 1
-    assert_equal o.steps[0].keys.first, :one
-    assert_equal o.steps[0].values.first, step
+    assert_equal o.steps[0].first, :one
+    assert_equal o.steps[0].last, step
   end
 
   it "should support properly handle a double add" do
@@ -19,8 +19,8 @@ describe "Hero::Observer instance" do
     o.add_step(:one, step1)
     o.add_step(:one, step2)
     assert_equal o.steps.length, 1
-    assert_equal o.steps[0].keys.first, :one
-    assert_equal o.steps[0].values.first, step2
+    assert_equal o.steps[0].first, :one
+    assert_equal o.steps[0].last, step2
   end
 
   it "should properly sort steps based on the order they were added" do
@@ -31,9 +31,9 @@ describe "Hero::Observer instance" do
     o.add_step(:four) {}
     o.add_step(:one) {}
     assert_equal o.steps.length, 4
-    assert_equal o.steps[0].keys.first, :two
-    assert_equal o.steps[1].keys.first, :three
-    assert_equal o.steps[2].keys.first, :four
-    assert_equal o.steps[3].keys.first, :one
+    assert_equal o.steps[0].first, :two
+    assert_equal o.steps[1].first, :three
+    assert_equal o.steps[2].first, :four
+    assert_equal o.steps[3].first, :one
   end
 end

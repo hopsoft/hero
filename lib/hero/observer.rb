@@ -7,22 +7,21 @@ module Hero
     end
 
     def steps
-      @steps ||= {}
-      @steps.sort{ |a, b| a.last[:index] <=> b.last[:index] }.map{ |k, v| { k => v[:step] } }
+      @steps ||= []
     end
 
     def add_step(name, step=nil, &block)
-      @steps ||= {}
+      steps.delete_if { |s| s.first == name }
       step ||= block if block_given?
-      @steps[name] = { :step => step, :index => @steps.length }
+      steps << [name, step]
     end
 
     def update(context, options={})
       steps.each do |step|
         if Hero.logger
-          Hero.logger.info "HERO Formula: #{formula_name}, Step: #{step.keys.first}, Context: #{context.inspect}, Options: #{options.inspect}"
+          Hero.logger.info "HERO Formula: #{formula_name}, Step: #{step.first}, Context: #{context.inspect}, Options: #{options.inspect}"
         end
-        step.values.first.call(context, options)
+        step.last.call(context, options)
       end
     end
 

@@ -60,7 +60,7 @@ module Hero
     def publish
       value = [name]
       steps.each_with_index do |step, index|
-        value << "#{(index + 1).to_s.rjust(3)}. #{step.keys.first}"
+        value << "#{(index + 1).to_s.rjust(3)}. #{step.first}"
       end
       value.join("\n")
     end
