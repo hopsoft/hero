@@ -21,18 +21,18 @@ module Hero
     # Adds a step to be executed when the Hero::Formula is run.
     # @note Steps are called in the order they are added. 1st in 1st invoked.
     #
-    # @example A step must implement the interface
+    # @example A step must implement the interface.
     #   def call(*args)
     #
-    # @example Or more specifically
+    #   # or more specifically
     #   def call(context, options={})
     #
-    # @example Add a step using a block
+    # @example Add a step using a block.
     #   add_step(:my_step) do |context, options|
     #     # logic here...
     #   end
     #
-    # @example Add a step using an Object
+    # @example Add a step using an Object.
     #   class MyStep
     #     def self.call(context, options={})
     #       # logic here...
