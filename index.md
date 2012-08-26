@@ -1,4 +1,5 @@
 ---
+title: hero
 layout: main
 forkme_url: https://github.com/hopsoft/hero
 ---
@@ -182,4 +183,8 @@ This is an important point and a powerful concept.
 ## Deep Cuts {#deep-cuts}
 
 Advanced usage coming soon...
+
+---
+
+{% include disqus.html %}
 {% include forkme.html %}
