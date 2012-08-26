@@ -92,7 +92,7 @@ This looks surprising similar to the requirements.
 In fact we can publish the specification directly from Hero.
 
 {% highlight ruby %}
-puts Hero::Formula[:gather_news].publish
+puts Hero::Formula[:gather_news].to_s
 
 # => gather_news
 #      1. hacker_news
