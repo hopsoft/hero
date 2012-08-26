@@ -67,25 +67,25 @@ Gather News
 Now that we have the basic requirements, lets model it with Hero.
 
 {% highlight ruby %}
-Hero::Formula[:gather_news].add_step :hacker_news do |context|
+Hero::Formula[:gather_news].add_step :hacker_news do |context, options|
   # make api call
   # parse results
   # append results to context
 end
 
-Hero::Formula[:gather_news].add_step :reddit do |context|
+Hero::Formula[:gather_news].add_step :reddit do |context, options|
   # make api call
   # parse results
   # append results to context
 end
 
-Hero::Formula[:gather_news].add_step :google do |context|
+Hero::Formula[:gather_news].add_step :google do |context, options|
   # make api call
   # parse results
   # append results to context
 end
 
-Hero::Formula[:gather_news].add_step :email do |context|
+Hero::Formula[:gather_news].add_step :email do |context, options|
   # format news for email
   # compose the email
   # send the email
@@ -125,7 +125,7 @@ And we're done.
 
 - Steps can be tested independently.
 
-- Each step implements the interface: `def call(context, options={})`
+- Each step implements the interface: `def call(context, options)`
 
 
 ## Next Steps {#next-steps}
@@ -135,7 +135,7 @@ Here's an example.
 
 {% highlight ruby %}
 # this
-Hero::Formula[:gather_news].add_step :hacker_news do |context|
+Hero::Formula[:gather_news].add_step :hacker_news do |context, options|
   # make api call
   # parse results
   # append results to context
@@ -145,7 +145,7 @@ end
 module GatherNews
   class HackerNews
 
-    def call(context)
+    def call(context, options)
       # make api call
       # parse results
       # append results to context
