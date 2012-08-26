@@ -124,12 +124,16 @@ describe Hero::Formula do
         end
       end
       Hero.logger = TestLogger.new
-      Hero::Formula[:test_formula].add_step(:one) {}
-      Hero::Formula[:test_formula].add_step(:two) {}
-      Hero::Formula[:test_formula].run(:example, :logging => true)
-      assert_equal Hero.logger.buffer.length, 2
-      assert_equal "HERO Formula: test_formula, Step: one, Context: :example, Options: {:logging=>true}", Hero.logger.buffer.first
-      assert_equal "HERO Formula: test_formula, Step: two, Context: :example, Options: {:logging=>true}", Hero.logger.buffer.last
+
+      Hero::Formula[:test_formula].add_step(:one) { |list, opts| list << 1; opts[:step] = 1 }
+      Hero::Formula[:test_formula].add_step(:two) { |list, opts| list << 2; opts[:step] = 2 }
+      list = []
+      Hero::Formula[:test_formula].run(list, {})
+      assert_equal Hero.logger.buffer.length, 4
+      assert_equal "HERO before test_formula -> one Context: [] Options: {}", Hero.logger.buffer[0]
+      assert_equal "HERO after  test_formula -> one Context: [1] Options: {:step=>1}", Hero.logger.buffer[1]
+      assert_equal "HERO before test_formula -> two Context: [1] Options: {:step=>1}", Hero.logger.buffer[2]
+      assert_equal "HERO after  test_formula -> two Context: [1, 2] Options: {:step=>2}", Hero.logger.buffer[3]
     end
 
   end

@@ -163,10 +163,10 @@ We also need an initializer to set the formula up.
 
 ```ruby
 # app/initializer.rb
-Hero::Formula[:gather_news].add_step GatherNews::HackerNews.new
-Hero::Formula[:gather_news].add_step GatherNews::Reddit.new
-Hero::Formula[:gather_news].add_step GatherNews::Google.new
-Hero::Formula[:gather_news].add_step GatherNews::Email.new
+Hero::Formula[:gather_news].add_step :hacker_news, GatherNews::HackerNews.new
+Hero::Formula[:gather_news].add_step :reddit, GatherNews::Reddit.new
+Hero::Formula[:gather_news].add_step :google, GatherNews::Google.new
+Hero::Formula[:gather_news].add_step :email, GatherNews::Email.new
 ```
 
 Now we have a well structured application that is ready to grow.
@@ -177,4 +177,31 @@ This is an important point and a powerful concept.
 
 ## Deep Cuts
 
-Advanced usage coming soon...
+Logging comes for free if you register a logger with Hero. Here's an example.
+
+```ruby
+Hero.logger = Logger.new(STDOUT)
+
+Hero::Formula[:log_example].add_step :first_step do |context, options|
+  context << 1
+end
+
+Hero::Formula[:log_example].add_step :second_step do |context, options|
+  context << 2
+end
+
+Hero::Formula[:log_example].add_step :third_step do |context, options|
+  context << 3
+end
+
+Hero::Formula[:log_example].run([])
+
+# The log will now contain the following lines.
+#
+# I, [2012-08-26T11:37:22.267072 #76676]  INFO -- : HERO before log_example -> first_step Context: [] Options: {}
+# I, [2012-08-26T11:37:22.267166 #76676]  INFO -- : HERO after  log_example -> first_step Context: [1] Options: {}
+# I, [2012-08-26T11:37:22.267211 #76676]  INFO -- : HERO before log_example -> second_step Context: [1] Options: {}
+# I, [2012-08-26T11:37:22.267248 #76676]  INFO -- : HERO after  log_example -> second_step Context: [1, 2] Options: {}
+# I, [2012-08-26T11:37:22.267282 #76676]  INFO -- : HERO before log_example -> third_step Context: [1, 2] Options: {}
+# I, [2012-08-26T11:37:22.267333 #76676]  INFO -- : HERO after  log_example -> third_step Context: [1, 2, 3] Options: {}
+```

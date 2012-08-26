@@ -59,11 +59,17 @@ module Hero
     # @param optional [Hash] options An option Hash to be passed to each step.
     def update(context=nil, options={})
       steps.each do |step|
-        if Hero.logger
-          Hero.logger.info "HERO Formula: #{formula_name}, Step: #{step.first}, Context: #{context.inspect}, Options: #{options.inspect}"
-        end
+        log_step(:before, step, context, options)
         step.last.call(context, options)
+        log_step(:after, step, context, options)
       end
+    end
+
+    private 
+
+    def log_step(id, step, context, options)
+      return unless Hero.logger
+      Hero.logger.info "HERO #{id.to_s.ljust(6)} #{formula_name} -> #{step.first} Context: #{context.inspect} Options: #{options.inspect}"
     end
 
   end
