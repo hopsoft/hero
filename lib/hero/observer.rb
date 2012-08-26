@@ -67,6 +67,12 @@ module Hero
 
     private 
 
+    # Logs a step to the registered Hero.logger.
+    # @note Users info for the log level.
+    # @param [Symbol, String] id The identifier for the step. [:before, :after]
+    # @param [Object] step
+    # @param [Object] context
+    # @param [Object] options
     def log_step(id, step, context, options)
       return unless Hero.logger
       Hero.logger.info "HERO #{id.to_s.ljust(6)} #{formula_name} -> #{step.first} Context: #{context.inspect} Options: #{options.inspect}"
