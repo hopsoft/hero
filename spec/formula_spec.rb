@@ -54,7 +54,7 @@ describe Hero::Formula do
     Hero::Formula[:second].add_step(:four) {}
 
     expected = "first  1. one  2. two  3. three  4. foursecond  1. one  2. two  3. three  4. four"
-    assert_equal Hero::Formula.publish.gsub(/\n/, ""), expected
+    assert_equal Hero::Formula.to_s.gsub(/\n/, ""), expected
   end
 
   describe "a registered formula" do
@@ -112,7 +112,7 @@ describe Hero::Formula do
       Hero::Formula[:test_formula].add_step(:three) {}
       Hero::Formula[:test_formula].add_step(:four) {}
       expected = "test_formula  1. one  2. two  3. three  4. four"
-      assert_equal Hero::Formula[:test_formula].publish.gsub(/\n/, ""), expected
+      assert_equal Hero::Formula[:test_formula].to_s.gsub(/\n/, ""), expected
     end
 
     it "should support logging" do

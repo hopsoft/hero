@@ -55,9 +55,9 @@ module Hero
     #
     # @note A log message will be written to Hero.logger for each step that is called if Hero.logger has been set.
     #
-    # @param [Object] context The context to be passed to each step.
-    # @param [Hash] options An option Hash to be passed to each step.
-    def update(context, options={})
+    # @param optional [Object] context The context to be passed to each step.
+    # @param optional [Hash] options An option Hash to be passed to each step.
+    def update(context=nil, options={})
       steps.each do |step|
         if Hero.logger
           Hero.logger.info "HERO Formula: #{formula_name}, Step: #{step.first}, Context: #{context.inspect}, Options: #{options.inspect}"
