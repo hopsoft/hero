@@ -117,15 +117,15 @@ And we're done.
 
 ### Key take aways {#key-take-aways}
 
-- **The implementation aligns perfectly with the requirements.**
+- The implementation aligns perfectly with the requirements.
   *Developers and business folks can talk the same lingo.*
 
-- **The formula is composed of smaller steps that are interchangable.**
+- The formula is composed of smaller steps that are interchangable.
   *We are poised for changing requirements.*
 
-- **Steps can be easily tested independently.**
+- Steps can be tested independently.
 
-- **Each step implements the interface `def call(context)`**
+- Each step implements the interface: `def call(context, options={})`
 
 
 ## Next Steps {#next-steps}
