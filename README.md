@@ -36,7 +36,7 @@ you have a lump of spaghetti that's difficult to maintain and even harder to imp
 
 Hero provides a simple pattern that encourages you to 
 <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
-these processes into managable chunks. And the best part... the components can be easily tested.
+these processes into managable chunks.
 
 ---
 
@@ -48,12 +48,16 @@ gem install hero
 
 Lets model a business process for collecting the top news stories from Hacker News, Reddit, & Google and then emailing the results to someone.
 
+---
+
 Gather News
 
 - Get news from Hacker News
 - Get news from Reddit
 - Get news from Google
 - Email Results
+
+---
 
 Now that we have the basic requirements, lets model it with Hero.
 
@@ -109,13 +113,15 @@ And we're done.
 ### Key take aways
 
 - **The implementation aligns perfectly with the requirements.**
-  *This means that developers and business folks can talk the same lingo.*
+  *Developers and business folks can talk the same lingo.*
 
 - **The formula is composed of smaller steps that are interchangable.**
-  *This means we are poised for changing requirements.*
+  *We are poised for changing requirements.*
+
+- **Steps can be easily tested independently.**
 
 - **Each step implements the interface `def call(context)`**
-  *This means we can create step classes to simplify the app structure.*
+
 
 ## Next Steps
 
@@ -169,7 +175,7 @@ Hero::Formula[:gather_news].add_step :google, GatherNews::Google.new
 Hero::Formula[:gather_news].add_step :email, GatherNews::Email.new
 ```
 
-Now we have a well structured application that is ready to grow.
+Now we have a well structured application thats ready to grow.
 Notice how well organized everything is.
 
 Also note that we can write tests for each step independent of anything else.
