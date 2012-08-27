@@ -118,10 +118,9 @@ describe Hero::Formula do
     it "should support logging" do
       class TestLogger
         attr_reader :buffer
-        def info(value)
-          @buffer ||= []
-          @buffer << value
-        end
+        def initialize; @buffer = []; end
+        def info(value); @buffer << value; end
+        alias :error :info
       end
       Hero.logger = TestLogger.new
 
@@ -134,6 +133,21 @@ describe Hero::Formula do
       assert_equal "HERO after  test_formula -> one Context: [1] Options: {:step=>1}", Hero.logger.buffer[1]
       assert_equal "HERO before test_formula -> two Context: [1] Options: {:step=>1}", Hero.logger.buffer[2]
       assert_equal "HERO after  test_formula -> two Context: [1, 2] Options: {:step=>2}", Hero.logger.buffer[3]
+    end
+
+    it "should support logging errors" do
+      class TestLogger
+        attr_reader :info_count, :error_count, :buffer
+        def initialize; @info_count = 0; @error_count = 0; @buffer = []; end
+        def info(value); @info_count += 1; @buffer << value; end
+        def error(value); @error_count += 1; @buffer << value; end
+      end
+      Hero.logger = TestLogger.new
+      Hero::Formula[:test_formula].add_step(:one) { |list, opts| raise Exception.new("fubar") }
+      assert_raise(Exception) { Hero::Formula[:test_formula].run }
+      assert_equal Hero.logger.buffer.length, 2
+      assert_equal Hero.logger.info_count, 1
+      assert_equal Hero.logger.error_count, 1
     end
 
   end

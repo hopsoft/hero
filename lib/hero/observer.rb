@@ -59,13 +59,18 @@ module Hero
     # @param optional [Hash] options An option Hash to be passed to each step.
     def update(context=nil, options={})
       steps.each do |step|
-        log_step(:before, step, context, options)
-        step.last.call(context, options)
-        log_step(:after, step, context, options)
+        log_step(:info, :before, step, context, options)
+        begin
+          step.last.call(context, options)
+        rescue Exception => ex
+          log_step(:error, :after, step, context, options)
+          raise ex
+        end
+        log_step(:info, :after, step, context, options)
       end
     end
 
-    private 
+    private
 
     # Logs a step to the registered Hero.logger.
     # @note Users info for the log level.
@@ -73,9 +78,9 @@ module Hero
     # @param [Object] step
     # @param [Object] context
     # @param [Object] options
-    def log_step(id, step, context, options)
+    def log_step(level, id, step, context, options)
       return unless Hero.logger
-      Hero.logger.info "HERO #{id.to_s.ljust(6)} #{formula_name} -> #{step.first} Context: #{context.inspect} Options: #{options.inspect}"
+      Hero.logger.send level, "HERO #{id.to_s.ljust(6)} #{formula_name} -> #{step.first} Context: #{context.inspect} Options: #{options.inspect}"
     end
 
   end
