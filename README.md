@@ -1,6 +1,6 @@
 # Hero
 
-![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg) 
+![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg)
 
 ## Its a bird, its a plane, its... its... my Hero
 
@@ -10,20 +10,20 @@
 
 ---
 
-I've seen my share of poor app structure. 
+I've seen my share of poor app structure.
 Hell, I wrote most of it.
 Whether is fat controllers, giant models with mystery callbacks, or a junk drawer lib directory.
 
 The question remains. **Where do I put my business logic?**
 
-Finally... an answer that might even make DHH proud. 
+Finally... an answer that might even make DHH proud.
 One that evolved from the real world with concrete use cases and actual production code.
 
 ## Why Hero?
 
 * It matches the mental map of your business requirements
 * It produces testable components
-* It easily handles changing requirements 
+* It easily handles changing requirements
 * It reduces the ramp up time for new team members
 
 ## Process Modeling
@@ -34,7 +34,7 @@ Things start simply enough but eventually edge cases force *gotchas* into
 various libs, modules, and classes. Before you know you it,
 you have a lump of spaghetti that's difficult to maintain and even harder to improve.
 
-Hero provides a simple pattern that encourages you to 
+Hero provides a simple pattern that encourages you to
 <a href="http://en.wikipedia.org/wiki/Decomposition_(computer_science)">decompose</a>
 these processes into managable chunks.
 
@@ -87,11 +87,11 @@ Hero::Formula[:gather_news].add_step :email do |context, options|
 end
 ```
 
-This looks surprising similar to the requirements. 
+This looks surprising similar to the requirements.
 In fact we can publish the specification directly from Hero.
 
 ```ruby
-puts Hero::Formula[:gather_news].to_s
+Hero::Formula[:gather_news].print
 
 # => gather_news
 #      1. hacker_news

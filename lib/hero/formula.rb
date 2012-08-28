@@ -40,11 +40,9 @@ module Hero
       # Indicates the total number of registered formulas.
       def_delegator :formulas, :length, :count
 
-      # Returns a string representation of all registered formulas.
-      def to_s
-        value = []
-        each { |name, formula| value << formula.to_s }
-        value.join("\n\n")
+      # Prints/puts a string representation of all registered formulas.
+      def print
+        formulas.values.each(&:print)
       end
 
       # Removes all registered formulas.
@@ -66,7 +64,13 @@ module Hero
       # @return Hero::Formula
       def register(name)
         observer = Hero::Observer.new(name)
-        formula = Class.new(Hero::Formula).instance
+        formula_class_name = name.to_s.strip.gsub(/\s/, "_").gsub(/[^a-z_]/i, "").split(/_/).map(&:capitalize).join
+        formula_class = Class.new(Hero::Formula)
+        if Hero::Formula.const_defined?(formula_class_name)
+          Hero::Formula.send(:remove_const, formula_class_name)
+        end
+        Hero::Formula.const_set(formula_class_name, formula_class)
+        formula = formula_class.instance
         formula.add_observer(observer)
         formula.instance_eval do
           @name = name
@@ -136,18 +140,18 @@ module Hero
 
     alias :run :notify
 
-    # Returns a String representation of the formula.
+    # Prints/puts a String representation of the formula.
     # @example
     #   Hero::Formula[:example].add_step(:one) {}
     #   Hero::Formula[:example].add_step(:two) {}
     #   Hero::Formula[:example].add_step(:three) {}
     #   Hero::Formula[:example].to_s # => "example\n  1. one\n  2. two\n  3. three"
-    def to_s
+    def print
       value = [name]
       steps.each_with_index do |step, index|
         value << "#{(index + 1).to_s.rjust(3)}. #{step.first}"
       end
-      value.join("\n")
+      puts value.join("\n")
     end
 
   end

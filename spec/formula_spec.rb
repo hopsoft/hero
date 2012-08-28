@@ -8,6 +8,18 @@ describe Hero::Formula do
     Hero::Formula.reset
   end
 
+  it "should create a named class" do
+    Hero::Formula[:my_formula]
+    assert Hero::Formula.const_defined?("MyFormula")
+    assert_equal Hero::Formula[:my_formula].class.name, "Hero::Formula::MyFormula"
+    assert Hero::Formula[:my_formula].is_a? Hero::Formula::MyFormula
+  end
+
+  it "should safely create a named class" do
+    Hero::Formula["A long and cr@zy f0rmul@ name ~12$%"]
+    assert Hero::Formula.const_defined?("ALongAndCrzyFrmulName")
+  end
+
   it "should support reset" do
     Hero::Formula.register(:test_formula)
     assert_equal Hero::Formula.count, 1
@@ -53,8 +65,16 @@ describe Hero::Formula do
     Hero::Formula[:second].add_step(:three) {}
     Hero::Formula[:second].add_step(:four) {}
 
-    expected = "first  1. one  2. two  3. three  4. foursecond  1. one  2. two  3. three  4. four"
-    assert_equal Hero::Formula.to_s.gsub(/\n/, ""), expected
+    begin
+      out = StringIO.new
+      $stdout = out
+      Hero::Formula.print
+      expected = "first\n  1. one\n  2. two\n  3. three\n  4. four\nsecond\n  1. one\n  2. two\n  3. three\n  4. four\n"
+      out.rewind
+      assert_equal out.readlines.join, expected
+    ensure
+      $stdout = STDOUT
+    end
   end
 
   describe "a registered formula" do
@@ -112,7 +132,16 @@ describe Hero::Formula do
       Hero::Formula[:test_formula].add_step(:three) {}
       Hero::Formula[:test_formula].add_step(:four) {}
       expected = "test_formula  1. one  2. two  3. three  4. four"
-      assert_equal Hero::Formula[:test_formula].to_s.gsub(/\n/, ""), expected
+      begin
+        out = StringIO.new
+        $stdout = out
+        Hero::Formula[:test_formula].print
+        expected = "test_formula\n  1. one\n  2. two\n  3. three\n  4. four\n"
+        out.rewind
+        assert_equal out.readlines.join, expected
+      ensure
+        $stdout = STDOUT
+      end
     end
 
     it "should support logging" do
