@@ -31,7 +31,7 @@ One that evolved from the real world with concrete use cases and actual producti
 * It easily handles changing requirements
 * It reduces the ramp up time for new team members
 
-## Process Modeling {#process-modeling}
+## Match the Implementation to the Business Process {#match-the-implementation-to-the-business-process}
 
 The problem has always been: **How do you effectively model a business process within your app?**
 
