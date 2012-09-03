@@ -2,12 +2,12 @@ require 'rake'
 
 Gem::Specification.new do |spec|
   spec.name = 'hero'
-  spec.version = '0.0.9'
+  spec.version = '0.1.0'
   spec.license = 'MIT'
   spec.homepage = 'http://hopsoft.github.com/hero/'
-  spec.summary = 'Business process modeling for the Rubyist'
+  spec.summary = 'Hero saves the day by aligning your implementation to business processes.'
   spec.description = <<-DESC
-    Simplify your apps with Hero.
+    Simplify your app by effectively modeling business processes within it.
   DESC
 
   spec.authors = ['Nathan Hopkins']
