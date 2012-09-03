@@ -65,11 +65,12 @@ module Hero
       def register(name)
         observer = Hero::Observer.new(name)
         formula_class_name = name.to_s.strip.gsub(/\s/, "_").gsub(/[^a-z_]/i, "").split(/_/).map(&:capitalize).join
+        formula_class_name = "HeroFormula#{formula_class_name}"
         formula_class = Class.new(Hero::Formula)
-        if Hero::Formula.const_defined?(formula_class_name)
-          Hero::Formula.send(:remove_const, formula_class_name)
+        if Object.const_defined?(formula_class_name)
+          Object.send(:remove_const, formula_class_name)
         end
-        Hero::Formula.const_set(formula_class_name, formula_class)
+        Object.const_set(formula_class_name, formula_class)
         formula = formula_class.instance
         formula.add_observer(observer)
         formula.instance_eval do

@@ -10,14 +10,14 @@ describe Hero::Formula do
 
   it "should create a named class" do
     Hero::Formula[:my_formula]
-    assert Hero::Formula.const_defined?("MyFormula")
-    assert_equal Hero::Formula[:my_formula].class.name, "Hero::Formula::MyFormula"
-    assert Hero::Formula[:my_formula].is_a? Hero::Formula::MyFormula
+    assert Object.const_defined?("HeroFormulaMyFormula")
+    assert_equal Hero::Formula[:my_formula].class.name, "HeroFormulaMyFormula"
+    assert Hero::Formula[:my_formula].is_a? HeroFormulaMyFormula
   end
 
   it "should safely create a named class" do
     Hero::Formula["A long and cr@zy f0rmul@ name ~12$%"]
-    assert Hero::Formula.const_defined?("ALongAndCrzyFrmulName")
+    assert Hero::Formula.const_defined?("HeroFormulaALongAndCrzyFrmulName")
   end
 
   it "should support reset" do
