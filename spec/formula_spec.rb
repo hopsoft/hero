@@ -8,6 +8,30 @@ describe Hero::Formula do
     Hero::Formula.reset
   end
 
+  it "should not allow anonymous steps" do
+    assert_raise ArgumentError do
+      Hero::Formula[:test_formula].add_step() {}
+    end
+  end
+
+  it "should allow unnamed steps" do
+    class MyStep
+      def call(*args); end
+    end
+    Hero::Formula[:test_formula].add_step MyStep
+    assert Hero::Formula[:test_formula].steps.map{|s| s.first}.include?("MyStep")
+    assert Hero::Formula[:test_formula].steps.map{|s| s.last}.include?(MyStep)
+  end
+
+  it "should allow named non-block steps" do
+    class MyStep
+      def call(*args); end
+    end
+    Hero::Formula[:test_formula].add_step :foo, MyStep
+    assert Hero::Formula[:test_formula].steps.map{|s| s.first}.include?(:foo)
+    assert Hero::Formula[:test_formula].steps.map{|s| s.last}.include?(MyStep)
+  end
+
   it "should create a named class" do
     Hero::Formula[:my_formula]
     assert Object.const_defined?("HeroFormulaMyFormula")

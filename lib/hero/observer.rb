@@ -39,12 +39,29 @@ module Hero
     #     end
     #   end
     #
-    #   add_step(:my_step, MyStep)
+    #   add_step(MyStep)
     #
-    # @param [Symbol, String] name The name of the step.
+    # @param optional [Symbol, String] name The name of the step.
     # @param optional [Object] step The step to be executed.
     # @block optional [Object] A block to use as the step to be executed.
-    def add_step(name, step=nil, &block)
+    def add_step(*args, &block)
+      if block_given?
+        raise ArgumentError unless args.length == 1
+        name = args.first
+        step = block
+      else
+        raise ArgumentError if args.length > 2
+        if args.length == 1
+          step = args.first
+        elsif args.length == 2
+          name = args.first
+          step = args.last
+        end
+      end
+
+      name ||= step.name if step.is_a? Class
+      name ||= step.class.name
+
       steps.delete_if { |s| s.first == name }
       step ||= block if block_given?
       steps << [name, step]
@@ -71,6 +88,7 @@ module Hero
     end
 
     private
+
 
     # Logs a step to the registered Hero.logger.
     # @note Users info for the log level.
