@@ -169,10 +169,10 @@ We also need an initializer to set the formula up.
 
 ```ruby
 # app/initializer.rb
-Hero::Formula[:gather_news].add_step :hacker_news, GatherNews::HackerNews.new
-Hero::Formula[:gather_news].add_step :reddit, GatherNews::Reddit.new
-Hero::Formula[:gather_news].add_step :google, GatherNews::Google.new
-Hero::Formula[:gather_news].add_step :email, GatherNews::Email.new
+Hero::Formula[:gather_news].add_step GatherNews::HackerNews.new
+Hero::Formula[:gather_news].add_step GatherNews::Reddit.new
+Hero::Formula[:gather_news].add_step GatherNews::Google.new
+Hero::Formula[:gather_news].add_step GatherNews::Email.new
 ```
 
 Now we have a well structured application thats ready to grow.
