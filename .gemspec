@@ -2,7 +2,7 @@ require 'rake'
 
 Gem::Specification.new do |spec|
   spec.name = 'hero'
-  spec.version = '0.1.1'
+  spec.version = '0.1.2'
   spec.license = 'MIT'
   spec.homepage = 'http://hopsoft.github.com/hero/'
   spec.summary = 'Hero saves the day by aligning your implementation to business processes.'
