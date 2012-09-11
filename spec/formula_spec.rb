@@ -14,22 +14,48 @@ describe Hero::Formula do
     end
   end
 
-  it "should allow unnamed steps" do
+  it "should allow unnamed Class steps" do
     class MyStep
-      def call(*args); end
+      def self.call(*args); end
     end
     Hero::Formula[:test_formula].add_step MyStep
     assert Hero::Formula[:test_formula].steps.map{|s| s.first}.include?("MyStep")
     assert Hero::Formula[:test_formula].steps.map{|s| s.last}.include?(MyStep)
   end
 
-  it "should allow named non-block steps" do
+  it "should allow named Class steps" do
     class MyStep
-      def call(*args); end
+      def self.call(*args); end
     end
     Hero::Formula[:test_formula].add_step :foo, MyStep
     assert Hero::Formula[:test_formula].steps.map{|s| s.first}.include?(:foo)
     assert Hero::Formula[:test_formula].steps.map{|s| s.last}.include?(MyStep)
+  end
+
+  it "should allow unnamed instance steps" do
+    class MyStep
+      def call(*args); end
+    end
+    step = MyStep.new
+    Hero::Formula[:test_formula].add_step step
+    names = Hero::Formula[:test_formula].steps.map{|s| s.first}
+    steps = Hero::Formula[:test_formula].steps.map{|s| s.last}
+    steps.each { |s| assert s.is_a? MyStep }
+    assert names.include?("MyStep")
+    assert steps.include?(step)
+  end
+
+  it "should allow named instance steps" do
+    class MyStep
+      def call(*args); end
+    end
+    step = MyStep.new
+    Hero::Formula[:test_formula].add_step :foo, step
+    names = Hero::Formula[:test_formula].steps.map{|s| s.first}
+    steps = Hero::Formula[:test_formula].steps.map{|s| s.last}
+    steps.each { |s| assert s.is_a? MyStep }
+    assert names.include?(:foo)
+    assert steps.include?(step)
   end
 
   it "should create a named class" do
