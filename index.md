@@ -219,5 +219,5 @@ Hero::Formula[:log_example].run([])
 
 ---
 
-{% include disqus.html %}
 {% include forkme.html %}
+{% include disqus.html %}
