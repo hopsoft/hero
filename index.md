@@ -219,6 +219,16 @@ Hero::Formula[:log_example].run([])
 # I, [2012-08-26T11:37:22.267333 #76676]  INFO -- : HERO after  log_example -> third_step Context: [1, 2, 3] Options: {}
 {% endhighlight %}
 
+## Run the Tests {#run-the-tests}
+
+{% highlight bash %}
+$ gem install hero
+$ gem unpack hero
+$ cd hero-VERSION
+$ bundle
+$ mt
+{% endhighlight %}
+
 ---
 
 {% include forkme.html %}
