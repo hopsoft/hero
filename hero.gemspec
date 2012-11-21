@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.version = Hero::VERSION
   spec.license = "MIT"
   spec.homepage = "http://hopsoft.github.com/hero/"
-  spec.summary = "You can think of Hero as a simplified state machine."
+  spec.summary = "Think of Hero as a simplified state machine."
   spec.description = <<-DESC
     Simplify your app by effectively modeling business processes within it.
   DESC
