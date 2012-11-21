@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     "lib/**/*.rb",
     "bin/*",
     "[A-Z]*",
-    "spec/**/*.rb"
+    "test/**/*.rb"
   ]
 end
 

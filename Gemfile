@@ -1,6 +1,8 @@
 source :rubygems
 
-gem "rspec", :group => :test
-gem "grumpy_old_man", :group => :test
-gem "pry", :groups => [:development, :test]
-gem "pry_debug", :groups => [:development, :test]
+group :development do
+  gem "micro_test", "0.3.0.rc4"
+  gem "micro_mock"
+  gem "pry"
+  gem "pry-stack_explorer"
+end
