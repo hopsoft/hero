@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    binding_of_caller (0.6.8)
     celluloid (0.12.3)
       facter (>= 1.6.12)
       timers (>= 1.0.0)
@@ -15,16 +14,20 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.3.1)
-    pry-stack_explorer (0.4.7)
-      binding_of_caller (~> 0.6.8)
+    pry (0.9.10-java)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.3.1)
+      spoon (~> 0.0)
     slop (3.3.2)
+    spoon (0.0.1)
     timers (1.0.1)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
-  micro_mock
+  micro_mock (= 0.0.8)
   micro_test (= 0.3.0.rc4)
   pry
-  pry-stack_explorer
