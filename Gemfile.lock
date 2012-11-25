@@ -4,11 +4,11 @@ GEM
     celluloid (0.12.3)
       facter (>= 1.6.12)
       timers (>= 1.0.0)
-    coderay (1.0.7)
+    coderay (1.0.8)
     facter (1.6.14)
-    method_source (0.8)
-    micro_mock (0.0.8)
-    micro_test (0.3.0.rc4)
+    method_source (0.8.1)
+    micro_mock (0.1.1)
+    micro_test (0.3.0)
       celluloid
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -19,7 +19,7 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.3.1)
       spoon (~> 0.0)
-    slop (3.3.2)
+    slop (3.3.3)
     spoon (0.0.1)
     timers (1.0.1)
 
@@ -28,6 +28,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  micro_mock (= 0.0.8)
-  micro_test (= 0.3.0.rc4)
+  micro_mock (>= 0.0.8)
+  micro_test (>= 0.3.0)
   pry

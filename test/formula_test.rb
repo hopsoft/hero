@@ -9,7 +9,23 @@ class FormulaTest < MicroTest::Test
     end
   end
 
+  module Helper
+    def invoke_notify_method(name)
+      step_ran = false
+      target = Object.new
+      Hero::Formula[@formula_name].add_step(:one) do |t, opts|
+        assert t == target
+        assert opts[:foo] == :bar
+        step_ran = true
+      end
+      Hero::Formula[@formula_name].notify(target, :foo => :bar)
+      assert step_ran
+    end
+  end
+
   before do
+    self.class.send :include, Helper
+
     FormulaTest.mutex.synchronize do
       FormulaTest.formula_count ||= 0
       @formula_name = "test_formula_#{FormulaTest.formula_count += 1}"
@@ -141,24 +157,12 @@ class FormulaTest < MicroTest::Test
     assert Hero::Formula[@formula_name].steps.length == 1
   end
 
-  invoke_notify_method = Proc.new do |name|
-    step_ran = false
-    target = Object.new
-    Hero::Formula[@formula_name].add_step(:one) do |t, opts|
-      assert t == target
-      assert opts[:foo] == :bar
-      step_ran = true
-    end
-    Hero::Formula[@formula_name].notify(target, :foo => :bar)
-    assert step_ran
-  end
-
   test "should support notify" do
-    instance_exec(:notify, &invoke_notify_method)
+    invoke_notify_method(:notify)
   end
 
   test "should support run" do
-    instance_exec(:run, &invoke_notify_method)
+    invoke_notify_method(:run)
   end
 
   test "should support running step defined in a class" do
