@@ -28,6 +28,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  micro_mock (>= 0.0.8)
-  micro_test (>= 0.3.0)
+  micro_mock
+  micro_test
   pry
