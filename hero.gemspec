@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.files       = Dir["lib/**/*.rb", "bin/*", "[A-Z]*"]
   gem.test_files  = Dir["test/**/*.rb"]
 
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "micro_test"
   gem.add_development_dependency "micro_mock"
   gem.add_development_dependency "pry"
