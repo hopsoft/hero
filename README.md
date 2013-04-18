@@ -1,5 +1,6 @@
 # Hero
 
+[![Build Status](https://travis-ci.org/hopsoft/hero.png)](https://travis-ci.org/hopsoft/hero)
 [![Dependency Status](https://gemnasium.com/hopsoft/hero.png)](https://gemnasium.com/hopsoft/hero)
 
 ![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg)
