@@ -44,7 +44,7 @@ class FormulaTest < MicroTest::Test
 
   test "should allow unnamed Class steps" do
     step = MicroMock.make
-    step.stub(:call) {}
+    step.def(:call) {}
     Hero::Formula[@formula_name].add_step step
     assert Hero::Formula[@formula_name].steps.map{|s| s.first}.first =~ /MicroMock/
     assert Hero::Formula[@formula_name].steps.map{|s| s.last}.include?(step)
@@ -52,7 +52,7 @@ class FormulaTest < MicroTest::Test
 
   test "should allow named Class steps" do
     step = MicroMock.make
-    step.stub(:call) {}
+    step.def(:call) {}
     Hero::Formula[@formula_name].add_step :foo, step
     assert Hero::Formula[@formula_name].steps.map{|s| s.first}.include?(:foo)
     assert Hero::Formula[@formula_name].steps.map{|s| s.last}.include?(step)
@@ -60,7 +60,7 @@ class FormulaTest < MicroTest::Test
 
   test "should allow unnamed instance steps" do
     step = MicroMock.make.new
-    step.stub(:call) {}
+    step.def(:call) {}
     Hero::Formula[@formula_name].add_step step
     names = Hero::Formula[@formula_name].steps.map{|s| s.first}
     steps = Hero::Formula[@formula_name].steps.map{|s| s.last}
@@ -71,7 +71,7 @@ class FormulaTest < MicroTest::Test
 
   test "should allow named instance steps" do
     step = MicroMock.make.new
-    step.stub(:call) {}
+    step.def(:call) {}
     Hero::Formula[@formula_name].add_step :foo, step
     names = Hero::Formula[@formula_name].steps.map{|s| s.first}
     steps = Hero::Formula[@formula_name].steps.map{|s| s.last}
@@ -167,7 +167,7 @@ class FormulaTest < MicroTest::Test
 
   test "should support running step defined in a class" do
     step = MicroMock.make.new
-    step.stub(:call) do |context, options|
+    step.def(:call) do |context, options|
       options[:context] = context
     end
 
@@ -209,8 +209,8 @@ class FormulaTest < MicroTest::Test
       logger = MicroMock.make.new
       logger.attr :buffer
       logger.buffer = []
-      logger.stub(:info) { |value| buffer << value }
-      logger.stub(:error) { |value| buffer << value }
+      logger.def(:info) { |value| buffer << value }
+      logger.def(:error) { |value| buffer << value }
       Hero.logger = logger
 
       Hero::Formula[@formula_name].add_step(:one) { |list, opts| list << 1; opts[:step] = 1 }
@@ -231,8 +231,8 @@ class FormulaTest < MicroTest::Test
   #     logger.attr :buffer
   #     logger.attr(:info_count)
   #     logger.attr(:error_count)
-  #     logger.stub(:info) { |value| buffer << value; self.info_count += 1 }
-  #     logger.stub(:error) { |value| buffer << value; self.error_count += 1 }
+  #     logger.def(:info) { |value| buffer << value; self.info_count += 1 }
+  #     logger.def(:error) { |value| buffer << value; self.error_count += 1 }
   #     logger.buffer = []
   #     logger.info_count = 0
   #     logger.error_count = 0

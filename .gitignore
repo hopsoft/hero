@@ -2,3 +2,4 @@
 .bundle
 .rvmrc
 doc
+Gemfile.lock

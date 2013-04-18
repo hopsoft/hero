@@ -1,5 +1,7 @@
 # Hero
 
+[![Dependency Status](https://gemnasium.com/hopsoft/hero.png)](https://gemnasium.com/hopsoft/hero)
+
 ![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg)
 
 ## Its a bird, its a plane, its... its... my Hero

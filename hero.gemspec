@@ -1,24 +1,21 @@
-require "rake"
+# -*- encoding: utf-8 -*-
 require File.join(File.dirname(__FILE__), "lib", "hero", "version")
 
-Gem::Specification.new do |spec|
-  spec.name = "hero"
-  spec.version = Hero::VERSION
-  spec.license = "MIT"
-  spec.homepage = "http://hopsoft.github.com/hero/"
-  spec.summary = "Think of Hero as a simplified state machine."
-  spec.description = <<-DESC
-    Simplify your app by effectively modeling business processes within it.
-  DESC
+Gem::Specification.new do |gem|
+  gem.name        = "hero"
+  gem.license     = "MIT"
+  gem.version     = Hero::VERSION
+  gem.authors     = ["Nathan Hopkins"]
+  gem.email       = ["natehop@gmail.com"]
+  gem.homepage    = "http://hopsoft.github.com/hero/"
+  gem.summary     = "Think of Hero as a simplified state machine."
+  gem.description = "Think of Hero as a simplified state machine."
 
-  spec.authors = ["Nathan Hopkins"]
-  spec.email = ["natehop@gmail.com"]
+  gem.files       = Dir["lib/**/*.rb", "bin/*", "[A-Z]*"]
+  gem.test_files  = Dir["test/**/*.rb"]
 
-  spec.files = FileList[
-    "lib/**/*.rb",
-    "bin/*",
-    "[A-Z]*",
-    "test/**/*.rb"
-  ]
+  gem.add_development_dependency "micro_test"
+  gem.add_development_dependency "micro_mock"
+  gem.add_development_dependency "pry"
 end
 
