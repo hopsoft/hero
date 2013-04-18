@@ -220,9 +220,8 @@ Hero::Formula[:log_example].run([])
 ## Run the Tests
 
 ```bash
-$ gem install hero
-$ gem unpack hero
-$ cd hero-VERSION
-$ bundle
-$ mt
+gem install hero
+gem unpack hero
+cd hero-VERSION
+rake
 ```
