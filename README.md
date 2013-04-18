@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hopsoft/hero.png)](https://travis-ci.org/hopsoft/hero)
 [![Dependency Status](https://gemnasium.com/hopsoft/hero.png)](https://gemnasium.com/hopsoft/hero)
+[![Code Climate](https://codeclimate.com/github/hopsoft/hero.png)](https://codeclimate.com/github/hopsoft/hero)
 
 ![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg)
 

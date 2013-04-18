@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.version     = Hero::VERSION
   gem.authors     = ["Nathan Hopkins"]
   gem.email       = ["natehop@gmail.com"]
-  gem.homepage    = "http://hopsoft.github.com/hero/"
+  gem.homepage    = "https://github.com/hopsoft/hero"
   gem.summary     = "Think of Hero as a simplified state machine."
   gem.description = "Think of Hero as a simplified state machine."
 
