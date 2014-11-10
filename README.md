@@ -6,8 +6,6 @@
 [![Build Status](https://travis-ci.org/hopsoft/hero.png)](https://travis-ci.org/hopsoft/hero)
 [![Coverage Status](https://img.shields.io/coveralls/hopsoft/hero.svg)](https://coveralls.io/r/hopsoft/hero?branch=master)
 
-![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg)
-
 ## Its a bird, its a plane, its... its... my Hero
 
 ---
