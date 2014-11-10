@@ -1,8 +1,10 @@
 # Hero
 
-[![Build Status](https://travis-ci.org/hopsoft/hero.png)](https://travis-ci.org/hopsoft/hero)
+[![Lines of Code](http://img.shields.io/badge/loc-130-brightgreen.svg)](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/)
+[![Code Status](https://codeclimate.com/github/hopsoft/hero.png)](https://codeclimate.com/github/hopsoft/hero)
 [![Dependency Status](https://gemnasium.com/hopsoft/hero.png)](https://gemnasium.com/hopsoft/hero)
-[![Code Climate](https://codeclimate.com/github/hopsoft/hero.png)](https://codeclimate.com/github/hopsoft/hero)
+[![Build Status](https://travis-ci.org/hopsoft/hero.png)](https://travis-ci.org/hopsoft/hero)
+[![Coverage Status](https://img.shields.io/coveralls/hopsoft/hero.svg)](https://coveralls.io/r/hopsoft/hero?branch=master)
 
 ![Hero GEM](http://hopsoft.github.com/hero/images/hero.jpg)
 
