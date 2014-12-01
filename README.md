@@ -7,9 +7,9 @@
 
 # Hero
 
-### Create Well Organized Modular Apps
-
 > Controlling complexity is the essence of computer programming. -- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
+
+### Create well organized modular apps.
 
 I've seen my share of poor app structure.
 Hell, I wrote most of it.
