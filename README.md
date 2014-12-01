@@ -17,9 +17,6 @@ Whether is fat controllers, giant models with mystery callbacks, or a junk drawe
 
 The question remains. **Where do I put my business logic?**
 
-Finally... an answer that might even make DHH proud.
-One that evolved from the real world with concrete use cases and actual production code.
-
 ## Why Hero?
 
 * It matches the mental map of your business requirements
