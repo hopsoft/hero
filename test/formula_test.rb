@@ -1,7 +1,7 @@
 require "thread"
-require File.join(File.dirname(__FILE__), "test_helper")
+require File.expand_path("../test_helper", __FILE__)
 
-class FormulaTest < MicroTest::Test
+class FormulaTest < PryTest::Test
   class << self
     attr_accessor :formula_count
     def mutex
@@ -43,39 +43,39 @@ class FormulaTest < MicroTest::Test
   end
 
   test "should allow unnamed Class steps" do
-    step = MicroMock.make
-    step.def(:call) {}
+    step = Spoof.make
+    step.method(:call) {}
     Hero::Formula[@formula_name].add_step step
-    assert Hero::Formula[@formula_name].steps.map{|s| s.first}.first =~ /MicroMock/
+    assert Hero::Formula[@formula_name].steps.map{|s| s.first}.first =~ /Spoof/
     assert Hero::Formula[@formula_name].steps.map{|s| s.last}.include?(step)
   end
 
   test "should allow named Class steps" do
-    step = MicroMock.make
-    step.def(:call) {}
+    step = Spoof.make
+    step.method(:call) {}
     Hero::Formula[@formula_name].add_step :foo, step
     assert Hero::Formula[@formula_name].steps.map{|s| s.first}.include?(:foo)
     assert Hero::Formula[@formula_name].steps.map{|s| s.last}.include?(step)
   end
 
   test "should allow unnamed instance steps" do
-    step = MicroMock.make.new
-    step.def(:call) {}
+    step = Spoof.make.new
+    step.method(:call) {}
     Hero::Formula[@formula_name].add_step step
     names = Hero::Formula[@formula_name].steps.map{|s| s.first}
     steps = Hero::Formula[@formula_name].steps.map{|s| s.last}
-    steps.each { |s| assert s.is_a? MicroMock }
-    assert names.first =~ /MicroMock/i
+    steps.each { |s| assert s.is_a? Spoof }
+    assert names.first =~ /Spoof/i
     assert steps.include?(step)
   end
 
   test "should allow named instance steps" do
-    step = MicroMock.make.new
-    step.def(:call) {}
+    step = Spoof.make.new
+    step.method(:call) {}
     Hero::Formula[@formula_name].add_step :foo, step
     names = Hero::Formula[@formula_name].steps.map{|s| s.first}
     steps = Hero::Formula[@formula_name].steps.map{|s| s.last}
-    steps.each { |s| assert s.is_a? MicroMock }
+    steps.each { |s| assert s.is_a? Spoof }
     assert names.include?(:foo)
     assert steps.include?(step)
   end
@@ -166,8 +166,8 @@ class FormulaTest < MicroTest::Test
   end
 
   test "should support running step defined in a class" do
-    step = MicroMock.make.new
-    step.def(:call) do |context, options|
+    step = Spoof.make.new
+    step.method(:call) do |context, options|
       options[:context] = context
     end
 
@@ -206,11 +206,11 @@ class FormulaTest < MicroTest::Test
 
   test "should support logging" do
     FormulaTest.mutex.synchronize do
-      logger = MicroMock.make.new
+      logger = Spoof.make.new
       logger.attr :buffer
       logger.buffer = []
-      logger.def(:info) { |value| buffer << value }
-      logger.def(:error) { |value| buffer << value }
+      logger.method(:info) { |value| buffer << value }
+      logger.method(:error) { |value| buffer << value }
       Hero.logger = logger
 
       Hero::Formula[@formula_name].add_step(:one) { |list, opts| list << 1; opts[:step] = 1 }
@@ -227,12 +227,12 @@ class FormulaTest < MicroTest::Test
 
   # test "should support logging errors" do
   #   FormulaTest.mutex.synchronize do
-  #     logger = MicroMock.make.new
+  #     logger = Spoof.make.new
   #     logger.attr :buffer
   #     logger.attr(:info_count)
   #     logger.attr(:error_count)
-  #     logger.def(:info) { |value| buffer << value; self.info_count += 1 }
-  #     logger.def(:error) { |value| buffer << value; self.error_count += 1 }
+  #     logger.method(:info) { |value| buffer << value; self.info_count += 1 }
+  #     logger.method(:error) { |value| buffer << value; self.error_count += 1 }
   #     logger.buffer = []
   #     logger.info_count = 0
   #     logger.error_count = 0

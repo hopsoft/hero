@@ -1,12 +1,13 @@
+[![Lines of Code](http://img.shields.io/badge/lines_of_code-126-brightgreen.svg?style=flat)](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/)
+[![Code Status](http://img.shields.io/codeclimate/github/hopsoft/hero.svg?style=flat)](https://codeclimate.com/github/hopsoft/hero)
+[![Dependency Status](http://img.shields.io/gemnasium/hopsoft/hero.svg?style=flat)](https://gemnasium.com/hopsoft/hero)
+[![Build Status](http://img.shields.io/travis/hopsoft/hero.svg?style=flat)](https://travis-ci.org/hopsoft/hero)
+[![Coverage Status](https://img.shields.io/coveralls/hopsoft/hero.svg?style=flat)](https://coveralls.io/r/hopsoft/hero?branch=master)
+[![Downloads](http://img.shields.io/gem/dt/hero.svg?style=flat)](http://rubygems.org/gems/hero)
+
 # Hero
 
-[![Lines of Code](http://img.shields.io/badge/loc-130-brightgreen.svg)](http://blog.codinghorror.com/the-best-code-is-no-code-at-all/)
-[![Code Status](https://codeclimate.com/github/hopsoft/hero.png)](https://codeclimate.com/github/hopsoft/hero)
-[![Dependency Status](https://gemnasium.com/hopsoft/hero.png)](https://gemnasium.com/hopsoft/hero)
-[![Build Status](https://travis-ci.org/hopsoft/hero.png)](https://travis-ci.org/hopsoft/hero)
-[![Coverage Status](https://img.shields.io/coveralls/hopsoft/hero.svg)](https://coveralls.io/r/hopsoft/hero?branch=master)
-
-## Its a bird, its a plane, its... its... my Hero
+Create well organized modular apps.
 
 > Controlling complexity is the essence of computer programming. -- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
 
@@ -26,7 +27,7 @@ One that evolved from the real world with concrete use cases and actual producti
 * It easily handles changing requirements
 * It reduces the ramp up time for new team members
 
-Think of Hero as a simplified state machine which enables implementations that can be understood at a glance.
+Think of Hero as a simplified state machine.
 
 ## Match the Implementation to the Business Process
 

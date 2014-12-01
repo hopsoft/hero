@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), "test_helper")
+require File.expand_path("../test_helper", __FILE__)
 
-class ObserverTest < MicroTest::Test
+class ObserverTest < PryTest::Test
   test "should support add_step" do
     step = lambda {}
     o = Hero::Observer.new(:example)

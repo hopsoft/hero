@@ -1,9 +1,10 @@
-require "micro_test"
-require "micro_mock"
+require "pry-test"
+require "spoof"
 require "coveralls"
 
 Coveralls.wear!
+SimpleCov.command_name "pry-test"
 
-Dir[File.join(File.dirname(__FILE__), "..", "lib", "*.rb")].each do |file|
+Dir[File.expand_path("../../lib/*.rb", __FILE__)].each do |file|
   require file
 end
