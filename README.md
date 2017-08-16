@@ -5,6 +5,8 @@
 [![Coverage Status](https://img.shields.io/coveralls/hopsoft/hero.svg?style=flat)](https://coveralls.io/r/hopsoft/hero?branch=master)
 [![Downloads](http://img.shields.io/gem/dt/hero.svg?style=flat)](http://rubygems.org/gems/hero)
 
+<a rel="nofollow" href="https://app.codesponsor.io/link/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/hero"><img src="https://app.codesponsor.io/embed/QMSjMHrtPhvfmCnk5Hbikhhr/hopsoft/hero.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+
 # Hero
 
 > Controlling complexity is the essence of computer programming. -- [Brian Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan)
